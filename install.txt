@@ -1,0 +1,1 @@
+sudo install -Dm755 "$(find . -name 'org.kde.breezewin.so' | head -1)" /usr/lib/qt6/plugins/org.kde.kdecoration3/org.kde.breezewin.so

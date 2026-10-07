@@ -42,3 +42,10 @@ j['KPlugin'] = {k: v for k, v in kp.items() if not re.match(r'(Name|Description)
 j['KPlugin'].update(Id='org.kde.breezewin', Name='Breeze Win',
                     Description='Breeze window decoration with Windows-style minimize/maximize buttons')
 json.dump(j, open(f'{d}/breezewin.json', 'w'), indent=4)
+
+# Windows 11 corner radius: 8 px (logical)
+p = f'{d}/breezedecoration.cpp'
+s = open(p).read()
+old = 'Metrics::Frame_FrameRadius * settings()->smallSpacing()'
+assert old in s
+open(p, 'w').write(s.replace(old, '8.0'))
